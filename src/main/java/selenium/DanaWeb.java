@@ -21,6 +21,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  *
@@ -32,8 +33,8 @@ public class DanaWeb {
     
     public static void main(String[] args) throws InterruptedException, IOException {
         
-        System.setProperty("webdriver.chrome.driver ", "/Users/Rasmussen/NetBeansProjects/Selenium");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "/Users/Lasse/Documents/Java/chromedriver");
+        driver = new FirefoxDriver();
         
         //DanaWeb
         driver.get("https://www.google.dk/search?ei=iG-qWve0CMzX6AS9gaTYBg&q=Created+and+hosted+by+danaweb&oq=Created+and+hosted+by+danaweb&gs_l=psy-ab.3..0i22i30k1l2.16426704.16430880.0.16431109.29.24.0.5.5.0.155.1845.21j3.24.0....0...1c.1.64.psy-ab..0.29.1854...0j0i67k1j0i131k1j0i131i67k1j0i10k1j0i22i10i30k1j0i13i30k1j33i22i29i30k1.0.MtSDa1Uza8o" );
