@@ -1,5 +1,7 @@
 package Interfaces;
 
+import java.util.ArrayList;
+
 
 // @author Lasse
 
@@ -11,7 +13,8 @@ public interface StartInterface {
     public void searchType(int type); 
     public void quit();
     public void clickModal(String xpath);
-    public String result ();
+    public ArrayList<String> setResult ( String some);
+    public ArrayList<String> getResult ();
 
 
 }

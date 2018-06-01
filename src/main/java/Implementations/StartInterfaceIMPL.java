@@ -18,16 +18,7 @@ public class StartInterfaceIMPL implements StartInterface{
     private static WebDriver driver = null;
     List<WebElement> els;
     String searchPhrase = "";
-    private String res = "";
-
-    public String getRes() {
-        return res;
-    }
-
-    public void setRes(String res) {
-        this.res = res;
-    }
-
+    private ArrayList<String> res = new ArrayList();
     
     
     public StartInterfaceIMPL()
@@ -107,10 +98,11 @@ public class StartInterfaceIMPL implements StartInterface{
                 els = driver.findElements(By.xpath(searchPhrase));
                 break;
        }
+
         for (WebElement el : els)
         {
-            System.out.println(el.getText());
-            setRes(el.getText());
+            //System.out.println(el.getText());
+            setResult(el.getText());
         }
     }
 
@@ -140,10 +132,16 @@ public class StartInterfaceIMPL implements StartInterface{
     }
 
     @Override
-    public String result() {
-        return getRes();
+    public ArrayList<String> setResult(String some) {
+        res.add(some);
+        return null;
     }
 
-
+    @Override
+    public ArrayList<String> getResult() {
+        return res;
+    }
+    
+    
 
 }

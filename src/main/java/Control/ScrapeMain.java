@@ -34,8 +34,7 @@ public class ScrapeMain {
        SI.setUrl("https://www.komplett.dk/");
        SI.searchPhrase("cell");
        SI.searchType(2);
-       //SI.result();
-        System.out.println(SI.result());
+        System.out.println(SI.getResult());
 //       SI.setUrl("https://www.bt.dk/");
 //       SI.clickModal("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]");
 //       Thread.sleep(3000);
