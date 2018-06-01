@@ -1,5 +1,6 @@
-package InterfaceSolution;
+package Implementations;
 
+import Interfaces.StartInterface;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -58,35 +59,43 @@ public class testIMPL implements StartInterface{
             //Evt throw error hvis vil vaere cool, for now dog kun sout error hehehehe
             System.out.println("SearchPhrase must be set before SearchType");
         }
-        
+        System.out.println("tesytesytesy");
        switch(type)
        {
             case 1:
-                driver.findElements(By.cssSelector(searchPhrase));
+                System.out.println("Du har valgt CssSelector");
+                els = driver.findElements(By.cssSelector(searchPhrase));
                 break;
             case 2:
-                driver.findElements(By.className(searchPhrase));
+                System.out.println("Du har valgt ClassName");
+                els = driver.findElements(By.className(searchPhrase));
                 break;
-            case 3:     
-                driver.findElements(By.id(searchPhrase));
+            case 3:
+                System.out.println("Du har valgt Id");
+                els = driver.findElements(By.id(searchPhrase));
                 break;
-            case 4:    
-                driver.findElements(By.linkText(searchPhrase));
+            case 4:  
+                System.out.println("LinkText");
+                els = driver.findElements(By.linkText(searchPhrase));
                 break;
-            case 5:    
-                driver.findElements(By.name(searchPhrase));
+            case 5: 
+                System.out.println("Du har valgt Name");
+                els = driver.findElements(By.name(searchPhrase));
                 break;
-            case 6:     
-                driver.findElements(By.partialLinkText(searchPhrase));
+            case 6:
+                System.out.println("Du har valgt PartialLinkText");
+                els = driver.findElements(By.partialLinkText(searchPhrase));
                 break;
-            case 7:    
-                driver.findElements(By.tagName(searchPhrase));
+            case 7:
+                System.out.println("Du har valgt TagName");
+                els = driver.findElements(By.tagName(searchPhrase));
                 break;
-            case 8:   
-                driver.findElements(By.xpath(searchPhrase));
+            case 8:
+                System.out.println("Du har valgt xPath");
+                els = driver.findElements(By.xpath(searchPhrase));
                 break;
        }
-       
+
         for (WebElement el : els)
         {
             System.out.println(el.getText());
@@ -97,6 +106,12 @@ public class testIMPL implements StartInterface{
     public void searchPhrase(String phrase)
     {
        searchPhrase = phrase;
+    }
+
+    @Override
+    public void quit()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
    

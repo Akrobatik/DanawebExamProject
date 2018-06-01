@@ -1,5 +1,8 @@
-package InterfaceSolution;
+package Control;
 
+import Implementations.testIMPL;
+import Interfaces.FileInterface;
+import Interfaces.StartInterface;
 import org.openqa.selenium.WebDriver;
 
 
@@ -10,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 public class ScrapeMain {
     
     public static StartInterface SI;
-
+    public static FileInterface FI;
    
     public ScrapeMain(StartInterface SI)
     {
@@ -22,9 +25,12 @@ public class ScrapeMain {
        new ScrapeMain(new testIMPL()); //Change this to change implementation
        
        SI.setDriver(1, "/Users/Lasse/Documents/Java/DanawebExamProject/chromedriver");
-       SI.setUrl("https://www.bt.dk/");
-       SI.searchPhrase("span bt-link");
+       SI.setUrl("https://www.komplett.dk/");
+       SI.searchPhrase("cell");
        SI.searchType(2);
+       
+       FI.openFile();
+       
     }
     
 
