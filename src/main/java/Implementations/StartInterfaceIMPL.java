@@ -1,6 +1,8 @@
 package Implementations;
 
 import Interfaces.StartInterface;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,13 +13,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 // @author Lasse
  
-public class testIMPL implements StartInterface{
+public class StartInterfaceIMPL implements StartInterface{
     
     private static WebDriver driver = null;
     List<WebElement> els;
     String searchPhrase = "";
+    private String res = "";
 
-    public testIMPL()
+    public String getRes() {
+        return res;
+    }
+
+    public void setRes(String res) {
+        this.res = res;
+    }
+
+    
+    
+    public StartInterfaceIMPL()
     {
         searchPhrase = "No phrase specified";
         System.out.println("ny IMPL created");
@@ -52,15 +65,14 @@ public class testIMPL implements StartInterface{
     }
 
     @Override
-    public void searchType(int type)
-    {
+    public void searchType(int type) {
         
         if(searchPhrase.isEmpty() || searchPhrase == null){
-            //Evt throw error hvis vil vaere cool, for now dog kun sout error hehehehe
+            //Evt throw error hvis vil være cool, for now dog kun sout error hehehehe
             System.out.println("SearchPhrase must be set before SearchType");
         }
-        System.out.println("tesytesytesy");
-       switch(type)
+
+        switch(type)
        {
             case 1:
                 System.out.println("Du har valgt CssSelector");
@@ -95,10 +107,10 @@ public class testIMPL implements StartInterface{
                 els = driver.findElements(By.xpath(searchPhrase));
                 break;
        }
-
         for (WebElement el : els)
         {
             System.out.println(el.getText());
+            setRes(el.getText());
         }
     }
 
@@ -114,7 +126,23 @@ public class testIMPL implements StartInterface{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+   @Override
    
+   /*
+   clickModal(String xpath) 
+   Provide the method with a xpath (Right click while inspecting the modal that is overlapping the website -> Copy -> Copy xPath)
+   
+   A lot of browsers are starting to implement cookiebotadds, they prevent the scraper for scraping the view,
+   use this method to get rid of it.
+   */
+    public void clickModal(String xpath){
+        driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @Override
+    public String result() {
+        return getRes();
+    }
 
 
 
